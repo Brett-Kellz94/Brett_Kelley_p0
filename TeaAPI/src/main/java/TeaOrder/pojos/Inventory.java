@@ -7,7 +7,7 @@ public class Inventory {
 	private String productType;
 	
 	
-	public Inventory(String pID, String pQuantity, String pType) {
+	public Inventory(String pID, int pQuantity, String pType) {
 		// TODO Auto-generated constructor stub
 	}
 	

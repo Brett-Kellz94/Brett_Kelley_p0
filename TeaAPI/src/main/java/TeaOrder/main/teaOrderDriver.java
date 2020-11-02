@@ -14,7 +14,7 @@ public class teaOrderDriver {
 			System.out.println("3. Update Inventory");
 			System.out.println("0. Exit");
 			
-			input = scan.nextLine();
+			String input = scan.nextLine();
 			
 			int i =3;
 			float f = i;

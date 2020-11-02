@@ -26,7 +26,7 @@ public class Orders {
 		this.orderNumber = orderNumber;
 	}
 	
-	public String getPackaging() {
+	public String getPackaging(String packaging) {
 		return packaging;
 	}
 	

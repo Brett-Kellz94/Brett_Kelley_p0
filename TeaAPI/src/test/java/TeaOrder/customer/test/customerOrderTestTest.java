@@ -1,0 +1,72 @@
+package TeaOrder.customer.test;
+
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.verify;
+
+import java.util.Set;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import TeaOrder.order.customerOrderImpl;
+import TeaOrder.order.orderCacheImpl;
+import TeaOrder.pojos.Customer;
+
+public class customerOrderTestTest extends Customer{
+	
+	public customerOrderTestTest(String name, String phone, String email) {
+		super(name, phone, email);
+		// TODO Auto-generated constructor stub
+	}
+
+	private customerOrderImpl custOrder;
+	
+	//mock 
+	private orderCacheImpl<Customer> cache;
+	
+	static private Set<Customer> testCache;
+ 
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+	}
+
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+	}
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	/*public void test() {
+		customerOrderImpl test = new customerOrderImpl(cache);
+		
+		Customer expected = new Customer("Branden", "803-466-7984", "branden.addicott@hubby.com");
+		Customer actual = test.createCustomer("Branden", "803-466-7984", "branden.addicott@hubby.com");
+		
+		assertTrue(expected.getCustomerName().equals(getCustomerName())
+				&& expected.getPhoneNumber().equals(getPhoneNumber())
+				&& expected.getEmailAddress().equals(getEmailAddress()));
+		
+		fail("Not yet implemented");
+	}
+	
+	
+	//test
+
+	*/
+	
+	Customer c = new Customer("David Bowie", "555-555-5555", "ziggy@startdust.com");
+	
+	testAddCustomer()
+	
+
+}

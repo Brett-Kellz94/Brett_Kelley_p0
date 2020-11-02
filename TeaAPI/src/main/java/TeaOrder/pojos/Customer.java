@@ -2,6 +2,7 @@ package TeaOrder.pojos;
 
 public class Customer {
 
+	private String PhoneNumber;
 	private String customerName;
 	private String phoneNumber;
 	private String emailAddress;
@@ -10,7 +11,10 @@ public class Customer {
 	
 	
 	public Customer(String name, String phone, String email) {
-		// TODO Auto-generated constructor stub
+		super();
+		this.customerName = name;
+		this.phoneNumber = phone;
+		this.emailAddress = email;
 	}
 
 
