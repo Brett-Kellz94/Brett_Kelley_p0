@@ -2,6 +2,8 @@ package TeaOrder.customer.test;
 
 import static org.junit.Assert.*;
 
+import java.util.Set;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -49,10 +51,7 @@ public class inventoryTest extends Inventory{
 		Inventory expected = new Inventory("G1111", 20, "Green tea bags");
 		Inventory actual = test.createItem("G1111", 20, "Green tea bags");
 		
-		assertTrue(expected.getProductID().equals(getProductID())
-				&& expected.pQuantity.equals(actualpQuantity())
-				&& expected.pType.equals(actualpType));
-		
+		assertTrue(expected.equals(actual));
 		fail("Not yet implemented");
 	}
 	

@@ -46,27 +46,26 @@ public class customerOrderTestTest extends Customer{
 	}
 
 	@Test
-	/*public void test() {
+	public void test() {
 		customerOrderImpl test = new customerOrderImpl(cache);
 		
 		Customer expected = new Customer("Branden", "803-466-7984", "branden.addicott@hubby.com");
 		Customer actual = test.createCustomer("Branden", "803-466-7984", "branden.addicott@hubby.com");
 		
-		assertTrue(expected.getCustomerName().equals(getCustomerName())
-				&& expected.getPhoneNumber().equals(getPhoneNumber())
-				&& expected.getEmailAddress().equals(getEmailAddress()));
+		assertTrue(expected.equals(actual));
 		
 		fail("Not yet implemented");
 	}
 	
-	
 	//test
-
-	*/
-	
-	Customer c = new Customer("David Bowie", "555-555-5555", "ziggy@startdust.com");
-	
-	testAddCustomer()
+	public void createCustomerTest() {
+		
+		Customer testCustomer = new Customer("David Bowie", "555-555-5555", "ziggy@startdust.com");
+		//  make sure we get the object we expect
+		assertEquals("Should create customer object", testCustomer, custOrder.createCustomer("David Bowie", "555-555-5555", "ziggy@startdust.com"));
+		// verify is mockito  make sure the method is called
+		verify(cache).addToCache(testCustomer);
+	}
 	
 
 }

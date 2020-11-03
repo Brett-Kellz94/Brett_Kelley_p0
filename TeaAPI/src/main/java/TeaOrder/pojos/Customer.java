@@ -4,17 +4,16 @@ public class Customer {
 
 	private String PhoneNumber;
 	private String customerName;
-	private String phoneNumber;
 	private String emailAddress;
     // email, address customer number etc 
 	 
 	
 	
-	public Customer(String name, String phone, String email) {
+	public Customer(String PhoneNumber, String customerName, String emailAddress)  {
 		super();
-		this.customerName = name;
-		this.phoneNumber = phone;
-		this.emailAddress = email;
+		this.customerName = customerName;
+		this.PhoneNumber = PhoneNumber;
+		this.emailAddress = emailAddress;
 	}
 
 
@@ -30,11 +29,11 @@ public class Customer {
 
 	
 	public String getPhoneNumber() {
-		return phoneNumber;
+		return PhoneNumber;
 	}
 	
 	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+		this.PhoneNumber = phoneNumber;
 	}
 
 

@@ -21,7 +21,7 @@ import TeaOrder.pojos.Orders;
 public class placedOrderTest extends Orders {
 
 	public placedOrderTest() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	private customerOrderImpl custOrder;
 	
@@ -48,21 +48,19 @@ public class placedOrderTest extends Orders {
 
 	@Test
 	public void test() {
-		customerOrderImpl test = new customerOrderImpl(null);
+		customerOrderImpl test = new customerOrderImpl();
 		
 		Orders expected = new Orders("Green", "teabags", 2, 1111.0, 10.00 );
 		Orders actual = test.placeOrder("Green", "teabags", 2, 1111.0, 10.00);
 		
-		assertTrue(expected.getTeaType().equals(getTeaType())
-				&& expected.getPackaging().equals(getPackaging())
-				&& expected.getQuantity().equals(getQuantity()));
-		
+		assertTrue(expected.equals(actual));
 		
 		fail("Not yet implemented");
 	}
 	
-	//test
-	public void placeOrderTest() {
+	/*
+	 * public void placeOrderTest() {
+	 
 		
 		Orders testOrder = new Orders();
 		//  make sure we get the object we expect
@@ -70,5 +68,6 @@ public class placedOrderTest extends Orders {
 		// verify is mockito  make sure the method is called
 		verify(cache).addToCache(testOrder);
 	}
+	*/
 	
 }

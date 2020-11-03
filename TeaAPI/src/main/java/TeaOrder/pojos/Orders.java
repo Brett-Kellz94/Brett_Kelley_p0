@@ -7,16 +7,19 @@ public class Orders {
 	private int quantity;
 	private double orderNumber;
 	private double orderCost;
+	private Customer customer;
 	
-	public Orders() {
+	public Orders(String teaType, String packaging, int quantity, double orderNumber, double orderCost, Customer customer) {
 		// TODO Auto-generated constructor stub
+		super();
+		this.teaType = teaType;
+		this.packaging = packaging;
+		this.quantity = quantity;
+		this.orderNumber = orderNumber;
+		this.orderCost = orderCost;
+		this.customer =customer;	
 	}
 	
-	public Orders(String teaType2, String packaging2, int quantity2, double orderNumber2, double orderCost2) {
-		
-		// TODO Auto-generated constructor stub
-	}
-
 	// create setters and getters
 	public double getOrderNumber() {
 		return orderNumber;
@@ -55,6 +58,14 @@ public double getOrderCost() {
 }
 public void setOrderCost(int orderCost) {
 	this.orderCost = orderCost;
+}
+
+public Customer getCustomer() {
+	return customer;
+}
+
+public void setCustomer(Customer customer) {
+	this.customer = customer;
 }
 	
 }

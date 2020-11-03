@@ -1,15 +1,13 @@
 package TeaOrder.order;
 
-import TeaOrder.pojos.Customer;
 import TeaOrder.pojos.Inventory;
-import TeaOrder.pojos.Orders;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 
-public class insertInventoryImpl {
+public class insertInventoryImpl implements insertInventory {
 
 	
 	private static Scanner scan = new Scanner(System.in);
@@ -27,7 +25,7 @@ public class insertInventoryImpl {
 	}
 	
 	
-public Inventory createItem(String productID, int productQuantity, String productType) {
+public Inventory createItem() {
 	
 	System.out.println("Please insert prodcut Id:");
 	String productId = scan.nextLine();

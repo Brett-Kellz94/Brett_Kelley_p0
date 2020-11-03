@@ -25,7 +25,11 @@ public class customerOrderImpl implements customerOrder {
 	}
 	
 	
-	public Customer createCustomer(String name, String phoneNumber, String email ) {
+	public customerOrderImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Customer createCustomer() {
 		// prompt for customer information
 		System.out.println("Please insert customer information");
 		System.out.println("Customer Name:");
@@ -44,21 +48,21 @@ public class customerOrderImpl implements customerOrder {
 		
 	}
 	
-	public Orders placeOrder(String teaType, String packaging, int quantity, double orderNumber, double orderCost) {
+	public Orders placeOrder() {
 		
 		
 		
 		System.out.println("Please choose Tea Type (Green Tea or Black Tea)");
 		String type = scan.nextLine();
 		System.out.println("Please choose packaging (Bags or Loose");
-		String packaging1 = scan.nextLine();
+		String packaging = scan.nextLine();
 		System.out.println("Please enter quantity");
-		int quantity1 = scan.nextInt();
+		int quantity = scan.nextInt();
 		
 		
 		//calculate price of the tea options
 		double tcost = 0;
-		if (teaType == "Green") {
+		if (type == "Green") {
 			tcost = 4.00;
 		}
 		else {
@@ -66,7 +70,7 @@ public class customerOrderImpl implements customerOrder {
 		}
 		
 		double pcost = 0;
-		if (packaging1 == "Bags" ) {
+		if (packaging == "Bags" ) {
 			pcost = 2.00;
 		}
 		else {
@@ -77,18 +81,18 @@ public class customerOrderImpl implements customerOrder {
 		
 		// calculate total cost of the order
 		
-		double orderCost1 = productCost * quantity1;
+		double orderCost = productCost * quantity;
 		
-		System.out.println ("your total cost for this order will be: " + orderCost1);
+		System.out.println ("your total cost for this order will be: " + orderCost);
 		
 		
 		//now generate order number
 		
-		double orderNumber1 = Math.random();
+		double orderNumber = Math.random();
 		
 		//now add oder details into Order object
 		
-		Orders order = new Orders(teaType, packaging1, quantity1, orderNumber1, orderCost1);
+		Orders order = new Orders(type, packaging, quantity, orderCost, orderNumber, null);
 		
 		//add order to order list
 		orders.add(order);

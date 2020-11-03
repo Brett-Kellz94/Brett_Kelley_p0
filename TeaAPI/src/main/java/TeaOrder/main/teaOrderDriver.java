@@ -1,12 +1,17 @@
 package TeaOrder.main;
 import java.util.Scanner;
 
+import TeaOrder.order.customerOrder;
+import TeaOrder.order.customerOrderImpl;
+import TeaOrder.order.insertInventory;
+import TeaOrder.order.insertInventoryImpl;
+
 public class teaOrderDriver {
 	
-	private static Scanner scan = new Scanner(System.in);
+	private static Scanner scan = new Scanner(System.in)
 
-		
-		
+
+
 		do {
 			System.out.println("Please choose one of the following:");
 			System.out.println("1. Place Order");
@@ -24,15 +29,24 @@ public class teaOrderDriver {
 			
 			case "1":
 			    // run place order methods
+				customerOrder newOrder = new customerOrderImpl();
 				
-				System.out.println("");
+				newOrder.createCustomer();
+				
+				newOrder.placeOrder();
+				
 				break;
 				
 			case "2":
 				//run check inventory
+				
 				break;
 			case "3":
 				//run update inventory
+				insertInventory addItem = new insertInventoryImpl();
+				
+				addItem.createItem();
+				
 				break;
 				
 			case "0":
