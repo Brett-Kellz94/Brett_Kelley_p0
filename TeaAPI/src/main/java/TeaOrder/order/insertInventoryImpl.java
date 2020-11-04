@@ -25,7 +25,7 @@ public class insertInventoryImpl implements insertInventory {
 	}
 	
 	
-public Inventory createItem() {
+public Inventory createItem(String ID, int prouducctQuantity, String productType) {
 	
 	System.out.println("Please insert prodcut Id:");
 	String productId = scan.nextLine();
@@ -43,4 +43,10 @@ public Inventory createItem() {
 	
 		
 	}
+
+@Override
+public Inventory createItem() {
+	// TODO Auto-generated method stub
+	return null;
+}
 }

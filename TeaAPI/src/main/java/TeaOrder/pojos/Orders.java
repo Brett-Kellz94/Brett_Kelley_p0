@@ -20,6 +20,10 @@ public class Orders {
 		this.customer =customer;	
 	}
 	
+	public Orders() {
+		// TODO Auto-generated constructor stub
+	}
+
 	// create setters and getters
 	public double getOrderNumber() {
 		return orderNumber;

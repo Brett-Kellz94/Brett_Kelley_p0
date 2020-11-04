@@ -15,6 +15,10 @@ public class Inventory {
 		
 	}
 	
+	public Inventory() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getProductID() {
 		return productID;
 	}

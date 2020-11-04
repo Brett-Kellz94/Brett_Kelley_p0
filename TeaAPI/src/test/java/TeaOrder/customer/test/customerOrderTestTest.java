@@ -11,16 +11,23 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import TeaOrder.order.customerOrder;
 import TeaOrder.order.customerOrderImpl;
 import TeaOrder.order.orderCacheImpl;
 import TeaOrder.pojos.Customer;
 
 public class customerOrderTestTest extends Customer{
 	
-	public customerOrderTestTest(String name, String phone, String email) {
+	/*public customerOrderTestTest(String name, String phone, String email) {
 		super(name, phone, email);
-		// TODO Auto-generated constructor stub
+
 	}
+	*/
+	
+	public customerOrderTestTest() {
+		super();
+	}
+	
 
 	private customerOrderImpl custOrder;
 	
@@ -47,17 +54,21 @@ public class customerOrderTestTest extends Customer{
 
 	@Test
 	public void test() {
-		customerOrderImpl test = new customerOrderImpl(cache);
+		customerOrder test = new customerOrderImpl();
 		
 		Customer expected = new Customer("Branden", "803-466-7984", "branden.addicott@hubby.com");
 		Customer actual = test.createCustomer("Branden", "803-466-7984", "branden.addicott@hubby.com");
 		
-		assertTrue(expected.equals(actual));
+		assertTrue(expected.getCustomerName().equals(actual.getCustomerName()) &&
+				   expected.getPhoneNumber().equals(actual.getPhoneNumber()) &&
+				   expected.getEmailAddress().equals(actual.getEmailAddress()));
 		
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 	
 	//test
+	
+	/*
 	public void createCustomerTest() {
 		
 		Customer testCustomer = new Customer("David Bowie", "555-555-5555", "ziggy@startdust.com");
@@ -67,5 +78,6 @@ public class customerOrderTestTest extends Customer{
 		verify(cache).addToCache(testCustomer);
 	}
 	
+	*/
 
 }

@@ -9,11 +9,16 @@ public class Customer {
 	 
 	
 	
-	public Customer(String PhoneNumber, String customerName, String emailAddress)  {
+	public Customer(String customerName, String PhoneNumber, String emailAddress)  {
 		super();
 		this.customerName = customerName;
 		this.PhoneNumber = PhoneNumber;
 		this.emailAddress = emailAddress;
+	}
+
+
+	public Customer() {
+		// TODO Auto-generated constructor stub
 	}
 
 

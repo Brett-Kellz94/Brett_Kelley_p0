@@ -20,9 +20,15 @@ import TeaOrder.pojos.Orders;
 
 public class placedOrderTest extends Orders {
 
-	public placedOrderTest() {
+	public placedOrderTest(String teaType, String packaging, int quantity, double orderId, double price, Customer customer) {
+		super(teaType, packaging, quantity, orderId, price, customer);
 		
 	}
+	
+	public placedOrderTest() {
+		super();
+	}
+	
 	private customerOrderImpl custOrder;
 	
 	//mock 
@@ -50,8 +56,10 @@ public class placedOrderTest extends Orders {
 	public void test() {
 		customerOrderImpl test = new customerOrderImpl();
 		
-		Orders expected = new Orders("Green", "teabags", 2, 1111.0, 10.00 );
-		Orders actual = test.placeOrder("Green", "teabags", 2, 1111.0, 10.00);
+		Customer newCustomer = new Customer("2314527152", "Patrick", "patio54@live.com");
+		
+		Orders expected = new Orders("Green", "teabags", 2, 1111.0, 10.00, newCustomer );
+		Orders actual = test.placeOrder("Green", "teabags", 2, 1111.0, 10.00, newCustomer);
 		
 		assertTrue(expected.equals(actual));
 		
