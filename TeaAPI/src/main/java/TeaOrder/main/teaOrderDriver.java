@@ -1,23 +1,37 @@
 package TeaOrder.main;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 import TeaOrder.order.customerOrder;
 import TeaOrder.order.customerOrderImpl;
 import TeaOrder.order.insertInventory;
 import TeaOrder.order.insertInventoryImpl;
-import TeaOrder.pojos.Customer;
-
-
+import TeaOrder.order.placeOrder;
+import TeaOrder.order.placeOrderImpl;
 
 public class teaOrderDriver {
 	
+	private static Logger log = Logger.getAnonymousLogger();
+
+	
 	public static Scanner scan = new Scanner(System.in);
 	
-public static void main(String[] args) {
+    public static void main(String[] args) {
+	
+	log.info("Program has started");
 	
       System.out.print("Please enter username:");
+      String userName = scan.nextLine();
+      
+      if(userName != null) {
+      
+      System.out.print("Please enter password:");
+      String passWord = scan.nextLine();
+      }
+      
+      log.info("New system login");
 
-		do {
+		//do {
 			System.out.println("Please choose one of the following:");
 			System.out.println("1. Place Order");
 			System.out.println("2. Check Inventory");
@@ -25,67 +39,25 @@ public static void main(String[] args) {
 			System.out.println("0. Exit");
 			
 			String input = scan.nextLine();
-			
-			int i =3;
-			float f = i;
-			System.out.println(i- (int)f);
+		
 			
 			switch (input) {
 			
 			case "1":
 			    // run place order methods
-				customerOrder newOrder = new customerOrderImpl();
-				
-				 System.out.println("Please insert customer information");
-					System.out.println("Customer Name:");
-					String customerName = scan.nextLine();
-					System.out.println("Phone number:");
-					String phone = scan.nextLine();
-					System.out.print("Email Address:");
-					String emailAddress = scan.nextLine();
-					
-				
-				Customer newCustomer = newOrder.createCustomer(customerName, phone, emailAddress);
 				
 				
-				System.out.println("Please choose Tea Type (Green Tea or Black Tea)");
-				String type = scan.nextLine();
-				System.out.println("Please choose packaging (Bags or Loose");
-				String packaging = scan.nextLine();
-				System.out.println("Please enter quantity");
-				int quantity = scan.nextInt();
+			   customerOrder newCustomer = new customerOrderImpl();
 				
-				//calculate price of the tea options
-			    int cost = 0;
-				if (type == "Green") {
-					cost = 4;
-				}
-				else {
-					cost = 5;
-				}
+			   newCustomer.createCustomer();
 				
-				cost = 0;
-				if (packaging == "Bags" ) {
-					cost = 2;
-				}
-				else {
-					cost = 3;
-				}
+			   log.info("New customer Created");
+			   
+				//now run place order method with our customer
+			    placeOrder newOrder = new placeOrderImpl();
+				newOrder.placeOrder();
 				
-				double productCost = cost + cost;
-				
-				// calculate total cost of the order
-				
-				double orderCost = productCost * quantity;
-				
-				System.out.println ("your total cost for this order will be: " + orderCost);
-				
-				
-				//now generate order number
-				
-				double orderNumber = 100001;
-				
-				newOrder.placeOrder(type, packaging, quantity, cost, orderNumber, newCustomer );
+				System.out.println("Customer order has been placed!");
 				
 				break;
 				
@@ -95,22 +67,24 @@ public static void main(String[] args) {
 				break;
 			case "3":
 				//run update inventory
-				insertInventory addItem = new insertInventoryImpl();
+				insertInventory newItem = new insertInventoryImpl();
 				
-				addItem.createItem();
-				
+				// add new item into inventory object
+				newItem.updateItem();
+			
+				log.info("Item added to inventory");
 				break;
 				
 			case "0":
 				break;
 				
-			default:
+				default:
 				System.out.println("Please enter a valid choice (1, 2, or 3");
 				break;
 			
 			}
 			
-		} while (input != null);
+		//1} while (input != null);
 			
 		}
 }

@@ -5,13 +5,15 @@ import TeaOrder.pojos.Orders;
 
 public interface customerOrder {
 	
-    
-	public Orders placeOrder(String type, String packaging, int quantity, double cost, double orderNum, Customer cust);
 
-	public Customer createCustomer(String string, String string2, String string3);
+
+	public Customer createCustomer(String name, String phoneNumber, String email);
 	
     
 	
-	
+	public Customer createCustomer();
+
 	
 }
+
+

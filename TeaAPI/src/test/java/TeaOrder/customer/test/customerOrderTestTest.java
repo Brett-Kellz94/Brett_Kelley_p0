@@ -29,12 +29,12 @@ public class customerOrderTestTest extends Customer{
 	}
 	
 
-	private customerOrderImpl custOrder;
+	//private customerOrderImpl custOrder;
 	
 	//mock 
 	private orderCacheImpl<Customer> cache;
 	
-	static private Set<Customer> testCache;
+	//static private Set<Customer> testCache;
  
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {

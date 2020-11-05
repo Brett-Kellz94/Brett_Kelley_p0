@@ -10,26 +10,23 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import TeaOrder.order.insertInventory;
 import TeaOrder.order.insertInventoryImpl;
 import TeaOrder.order.orderCacheImpl;
 import TeaOrder.pojos.Inventory;
 
 public class inventoryTest extends Inventory{
-	
-	public inventoryTest(String pID, int pQuantity, String pType) {
-		super(pID, pQuantity, pType);
-	}
+
 	
 	public inventoryTest() {
 	    super();
 	}
 
-	private insertInventoryImpl addInventory;
 	
 	//mock 
 	private orderCacheImpl<Inventory> cache;
 	
-	static private Set<Inventory> testCache;
+	//static private Set<Inventory> testCache;
  
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -49,13 +46,13 @@ public class inventoryTest extends Inventory{
 
 	@Test
 	public void test() {
-		insertInventoryImpl test = new insertInventoryImpl();
+		insertInventory test = new insertInventoryImpl();
 		
 		Inventory expected = new Inventory("G1111", 20, "Green tea bags");
-		Inventory actual = test.createItem("G1111", 20, "Green tea bags");
+		Inventory actual = test.updateItem("G1111", 20, "Green tea bags");
 		
 		assertTrue(expected.getProductID().equals(actual.getProductID()) &&
-				   expected.getQuantity().equals(actual.getQuantity()) &&
+				   expected.getQuantity() == (actual.getQuantity()) &&
 				   expected.getProductType().equals(actual.getProductType()));
 		
 	}

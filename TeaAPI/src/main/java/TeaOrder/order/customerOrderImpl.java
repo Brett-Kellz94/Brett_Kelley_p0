@@ -15,7 +15,7 @@ public class customerOrderImpl implements customerOrder {
 	
 	private orderCache<Customer> customerCache = new orderCacheImpl<Customer>();
 	List<Customer> customers = new ArrayList<Customer>();
-	List<Orders> orders = new ArrayList<Orders>();
+	
 	
 	
 	public void setCustomerCache(orderCache<Customer> customerCache) {
@@ -23,38 +23,54 @@ public class customerOrderImpl implements customerOrder {
 	}
 
 	
-	
 	public customerOrderImpl(orderCache<Customer> customerCache) {
 		super();
 		this.customerCache = customerCache;
 	}
 	
-	
+	public customerOrderImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
 	//create a customer object
-	public  Customer createCustomer(String name, String phoneNumber, String email) {
+	public  Customer createCustomer() {
 
-		Customer customer = new Customer(name, phoneNumber, email);
-
+		
+		 System.out.println("Please insert customer information");
+			System.out.println("Customer Name:");
+			String customerName = scan.nextLine();
+			System.out.println("Phone number:");
+			String phone = scan.nextLine();
+			System.out.print("Email Address:");
+			String emailAddress = scan.nextLine();
+		
+		
+		
+		Customer customer = new Customer(customerName, phone, emailAddress);
+		
 		customers.add(customer);
+		
+		customerCache.addToCache(customer);
+		
+		System.out.println("Added new customer");
 		
 		return customer;
 		
+
+		
 	}
 	
-	
-	// create an order object
-	public Orders placeOrder(String type, String packaging, int quantity,  double cost, double orderNum, Customer cust) {
+
+
+	@Override
+	public Customer createCustomer(String name, String phoneNumber, String email) {
+    
+		Customer customer = new Customer(name, phoneNumber, email);
 		
-		Orders order = new Orders(type, packaging, quantity, cost, orderNum, null);
+		//customers.add(customer);
+		customerCache.addToCache(customer);
 		
-		//add order to order list
-		orders.add(order); 
-		
-		System.out.println("Thank you for placing an order!");
-		System.out.println(order);
-		
-		return order;
-		
+		return customer;
 	}
 
 	

@@ -4,6 +4,7 @@ import TeaOrder.pojos.Inventory;
 
 public interface insertInventory {
 	
-	public Inventory createItem();
+	public Inventory updateItem(String productId, int quantity, String type);
 
+	public Inventory updateItem();
 }
