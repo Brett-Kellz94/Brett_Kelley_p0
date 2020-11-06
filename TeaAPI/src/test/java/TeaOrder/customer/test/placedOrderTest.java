@@ -31,7 +31,7 @@ public class placedOrderTest extends Orders {
 		super();
 	}
 	
-	//private customerOrderImpl custOrder;
+	private placeOrderImpl place;
 	
 	//mock 
 	private orderCacheImpl<Orders> cache;
@@ -79,16 +79,16 @@ public class placedOrderTest extends Orders {
 		//fail("Not yet implemented");
 	}
 	
-	/*
-	 * public void placeOrderTest() {
+	//test
+	  public void placeOrderTest() {
 	 
 		
 		Orders testOrder = new Orders();
 		//  make sure we get the object we expect
-		assertEquals("Should create order object", testOrder, custOrder.placeOrder("Green", "teabags", 2, 1111.0, 10.00));
+		assertEquals("Should create order object", testOrder, place.placeOrder("Green", "teabags", 2, 1111.0, 10.00, 1001));
 		// verify is mockito  make sure the method is called
 		verify(cache).addToCache(testOrder);
 	}
-	*/
+	
 	
 }

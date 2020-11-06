@@ -29,7 +29,7 @@ public class customerOrderTestTest extends Customer{
 	}
 	
 
-	//private customerOrderImpl custOrder;
+	private customerOrderImpl custOrder;
 	
 	//mock 
 	private orderCacheImpl<Customer> cache;
@@ -68,7 +68,7 @@ public class customerOrderTestTest extends Customer{
 	
 	//test
 	
-	/*
+	
 	public void createCustomerTest() {
 		
 		Customer testCustomer = new Customer("David Bowie", "555-555-5555", "ziggy@startdust.com");
@@ -78,6 +78,6 @@ public class customerOrderTestTest extends Customer{
 		verify(cache).addToCache(testCustomer);
 	}
 	
-	*/
+	
 
 }

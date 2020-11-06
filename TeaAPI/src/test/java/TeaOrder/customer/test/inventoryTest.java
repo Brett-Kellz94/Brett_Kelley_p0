@@ -1,8 +1,7 @@
 package TeaOrder.customer.test;
 
 import static org.junit.Assert.*;
-
-import java.util.Set;
+import static org.mockito.Mockito.verify;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -22,6 +21,7 @@ public class inventoryTest extends Inventory{
 	    super();
 	}
 
+	private insertInventoryImpl insert;
 	
 	//mock 
 	private orderCacheImpl<Inventory> cache;
@@ -58,17 +58,17 @@ public class inventoryTest extends Inventory{
 	}
 	
 	
-	/*
 	//test
+	
 	public void inventoryTest() {
 		
 		Inventory testInventory = new Inventory();
 		//  make sure we get the object we expect
-		assertEquals("Should create customer object", testCustomer, guestService.createCustomer("David Bowie", "555-555-5555", "ziggy@startdust.com"));
+		assertEquals("Should create inventory object", testInventory, insert.updateItem("G1111", 20, "Green tea bags"));
 		// verify is mockito  make sure the method is called
-		verify(orderCache).addToCache(testCustomer);
+		verify(cache).addToCache(testInventory);
 	}
 	
-	*/
+	
 
 }

@@ -1,13 +1,14 @@
 package TeaOrder.main;
 import java.util.Scanner;
 import java.util.logging.Logger;
-
 import TeaOrder.order.customerOrder;
 import TeaOrder.order.customerOrderImpl;
 import TeaOrder.order.insertInventory;
 import TeaOrder.order.insertInventoryImpl;
 import TeaOrder.order.placeOrder;
 import TeaOrder.order.placeOrderImpl;
+
+
 
 public class teaOrderDriver {
 	
@@ -23,6 +24,9 @@ public class teaOrderDriver {
       System.out.print("Please enter username:");
       String userName = scan.nextLine();
       
+      //create a list of users and check if the username is in the cache
+      //usercache.contains(username, password)
+      
       if(userName != null) {
       
       System.out.print("Please enter password:");
@@ -30,20 +34,23 @@ public class teaOrderDriver {
       }
       
       log.info("New system login");
+      
+      String input = "";
 
-		//do {
+		do {
 			System.out.println("Please choose one of the following:");
 			System.out.println("1. Place Order");
-			System.out.println("2. Check Inventory");
+			System.out.println("2. Check Inventory (to do)");
 			System.out.println("3. Update Inventory");
 			System.out.println("0. Exit");
 			
-			String input = scan.nextLine();
+			input = scan.nextLine();
 		
 			
 			switch (input) {
 			
 			case "1":
+				
 			    // run place order methods
 				
 				
@@ -58,7 +65,7 @@ public class teaOrderDriver {
 				newOrder.placeOrder();
 				
 				System.out.println("Customer order has been placed!");
-				
+				System.out.print("");
 				break;
 				
 			case "2":
@@ -72,7 +79,7 @@ public class teaOrderDriver {
 				// add new item into inventory object
 				newItem.updateItem();
 			
-				log.info("Item added to inventory");
+				log.info("Item added to inventory!");
 				break;
 				
 			case "0":
@@ -84,7 +91,7 @@ public class teaOrderDriver {
 			
 			}
 			
-		//1} while (input != null);
+		} while (input != null);
 			
 		}
 }
