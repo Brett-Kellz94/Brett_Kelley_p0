@@ -28,6 +28,12 @@ public class placeOrderImpl implements placeOrder{
 	
 	
 
+public placeOrderImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 public Orders placeOrder(Orders order) {
 
 	    System.out.println("Creating " + order + " object");
@@ -42,7 +48,7 @@ public Orders placeOrder(Orders order) {
 	}
 
 @Override
-public List<Orders> getAllOrder() {
+public List<Orders> getAllOrders() {
 
 	return placedOrderCache.retrieveAllItems();
 }

@@ -11,4 +11,5 @@ public interface insertInventory {
 	
 	
 	public List<Inventory> getAllItems();
+
 }

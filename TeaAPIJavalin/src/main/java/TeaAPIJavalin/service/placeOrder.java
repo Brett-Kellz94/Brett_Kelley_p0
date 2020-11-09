@@ -9,6 +9,6 @@ public interface placeOrder {
 
 	public Orders placeOrder(Orders order);
 	
-	public List<Orders> getAllOrder();
+	public List<Orders> getAllOrders();
 	
 }

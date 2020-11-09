@@ -28,6 +28,11 @@ public class customerOrderImpl implements customerOrder {
 		this.customerCache = customerCache;
 	}
 
+	public customerOrderImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	@Override
 	public Customer createCustomer(Customer customer) {
 		

@@ -2,12 +2,12 @@ package TeaAPIJavalin.pojos;
 
 public class Inventory {
 
-	private String productID;
+	private int productID;
 	private int quantity;
 	private String productType;
 	
 	
-	public Inventory(String productID, int quantity, String productType){
+	public Inventory(int productID, int quantity, String productType){
 		super();
 		this.productID = productID;
 		this.quantity = quantity;
@@ -19,11 +19,11 @@ public class Inventory {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getProductID() {
+	public int getProductID() {
 		return productID;
 	}
 
-    public void setProductID(String productID) {
+    public void setProductID(int productID) {
 	this.productID = productID;
     }
 
