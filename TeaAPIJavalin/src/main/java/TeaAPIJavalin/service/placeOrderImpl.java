@@ -34,7 +34,7 @@ public placeOrderImpl() {
 
 
 
-public Orders placeOrder(Orders order) {
+public Orders placeNewOrder(Orders order) {
 
 	    System.out.println("Creating " + order + " object");
 		//add order to order list
@@ -51,6 +51,22 @@ public Orders placeOrder(Orders order) {
 public List<Orders> getAllOrders() {
 
 	return placedOrderCache.retrieveAllItems();
+}
+
+
+
+@Override
+public Orders updateOrder(Orders order) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+
+
+@Override
+public Orders deleteOrder(Orders order) {
+	// TODO Auto-generated method stub
+	return null;
 }
 
 

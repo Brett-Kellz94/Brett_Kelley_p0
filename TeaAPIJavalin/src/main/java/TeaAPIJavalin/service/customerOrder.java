@@ -11,6 +11,10 @@ public interface customerOrder {
 	public Customer createCustomer(Customer customer);
 	
 	public List<Customer> getAllCustomers();
+	
+	public Customer deleteCustomer(Customer customer);
+	
+	public Customer updateCustomer(Customer customer);
 
 }
 

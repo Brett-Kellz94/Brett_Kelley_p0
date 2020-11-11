@@ -1,6 +1,8 @@
 package TeaAPIJavalin.dao;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Savepoint;
 import java.sql.Statement;
 
 import TeaAPIJavalin.pojos.Inventory;
@@ -17,13 +19,14 @@ public class inventoryDaoPostgres implements inventoryDao{
  	}
 
  	public void addItem(Inventory inventory) {
+ 		
+
 		String sql = "insert into inventory (quantity, product_type) "
 				+ "values('"
 				+ inventory.getQuantity()
 				+ "', '"
-				
 				+ inventory.getProductType()
-				+ ")";
+				+ "')";
 		
 		try (Connection conn = connUtil.createConnection()) {
 			statement = conn.createStatement();
@@ -52,5 +55,47 @@ public class inventoryDaoPostgres implements inventoryDao{
 //				e.printStackTrace();
 //			}
 //	}
+
+	@Override
+	public Inventory updateItem(Inventory inventory) {
+		//product id?
+        String sql = "update inventory set quantity = ?, product_type = ? where productid = ?";
+		
+		try (Connection conn = connUtil.createConnection()) {
+			
+
+			
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, inventory.getQuantity());
+			pstmt.setString(2, inventory.getProductType());
+			pstmt.setInt(3, inventory.getProductID());
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
+
+	@Override
+	public void deleteItem(Inventory inventory) {
+		 String sql = "delete from inventory where productid= ?";
+			try (Connection conn = connUtil.createConnection()) {
+					
+					
+		    PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, inventory.getProductID());
+			
+			pstmt.executeUpdate();
+			
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				
+			
+		}
+		
+	}
 	
-}
+

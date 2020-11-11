@@ -42,15 +42,22 @@ public Inventory addItem(Inventory item) {
 
 
 @Override
-public Inventory deleteItem(Inventory inventory) {
-	// TODO Auto-generated method stub
+public List<Inventory> getAllItems() {
+
+	return inventoryCache.retrieveAllItems();
+}
+
+
+@Override
+public Inventory updateItem(Inventory inventory) {
+
 	return null;
 }
 
 @Override
-public List<Inventory> getAllItems() {
+public Inventory deleteItem(Inventory inventory) {
 
-	return inventoryCache.retrieveAllItems();
+	return null;
 }
 
 }

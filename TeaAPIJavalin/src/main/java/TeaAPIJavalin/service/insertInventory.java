@@ -7,8 +7,10 @@ import TeaAPIJavalin.pojos.Inventory;
 public interface insertInventory {
 	
 	public Inventory addItem(Inventory inventory);
-	public Inventory deleteItem(Inventory inventory);
 	
+	public Inventory updateItem(Inventory inventory);
+	
+	public Inventory deleteItem(Inventory inventory);
 	
 	public List<Inventory> getAllItems();
 

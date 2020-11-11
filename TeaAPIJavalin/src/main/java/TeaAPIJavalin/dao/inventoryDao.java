@@ -4,12 +4,11 @@ import TeaAPIJavalin.pojos.Inventory;
 
 public interface inventoryDao {
 
-	public static void addItem(Inventory inventory) {
-		
-	}
+	public void addItem(Inventory inventory);
 	
-public static void deleteItem(Inventory inventory) {
-		
-	}
+	public Inventory updateItem(Inventory inventory);
+	
+	public void deleteItem(Inventory inventory);
+	
 	
 }

@@ -50,6 +50,20 @@ public class customerOrderImpl implements customerOrder {
 		return customerCache.retrieveAllItems();
 	}
 
+
+	@Override
+	public Customer deleteCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Customer updateCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	}
 

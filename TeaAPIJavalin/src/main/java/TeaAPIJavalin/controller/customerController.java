@@ -2,36 +2,59 @@ package TeaAPIJavalin.controller;
 
 import TeaAPIJavalin.pojos.Customer;
 import TeaAPIJavalin.service.customerOrder;
-import TeaAPIJavalin.service.customerOrderImpl;
+import TeaAPIJavalin.service.customerOrderFullstack;
 import io.javalin.http.Context;
 
 
 public class customerController {
 
 	//customerOrderFullStack
-	customerOrder newCustomer = new customerOrderImpl();
+	customerOrder customer = new customerOrderFullstack();
 	//build ctx
-	public void createGuest(Context ctx) {
-		
+	public void createCustomer(Context ctx) {
 		String name = ctx.formParam("name");
 		
 		String phoneNumber = ctx.formParam("phoneNumber");
 		
 		String emailAddress = ctx.formParam("emailAddress");
 		
-		Customer customer = new Customer(name, phoneNumber, emailAddress);
+		Customer newCustomer = new Customer(name, phoneNumber, emailAddress);
 		
-		newCustomer.createCustomer(customer);
+		customer.createCustomer(newCustomer);
 		
 		//add customer id to customer and order pojo
-		ctx.html(Integer.toString(customer.getCustomerId()));
+		//ctx.html(Integer.toString(customer.getCustomerId()));
 	}
 	
 	//public void getCustomer(Context ctx) {
 		
 	//}
 	
-	public void getAllCustomers() {
+	public void updateCustomer(Context ctx) {
+		
+	    String name = ctx.formParam("name");
+		
+		String phoneNumber = ctx.formParam("phoneNumber");
+		
+		String emailAddress = ctx.formParam("emailAddress");
+		
+		Customer newCustomer = new Customer(name, phoneNumber, emailAddress);
+		
+		customer.updateCustomer(newCustomer);
+		
+	}
+	
+	public void deleteCustomer(Context ctx) {
+		
+	    String name = ctx.formParam("name");
+		
+		String phoneNumber = ctx.formParam("phoneNumber");
+		
+		String emailAddress = ctx.formParam("emailAddress");
+		
+		Customer newCustomer = new Customer(name, phoneNumber, emailAddress);
+		
+		customer.deleteCustomer(newCustomer);
 		
 	}
 	

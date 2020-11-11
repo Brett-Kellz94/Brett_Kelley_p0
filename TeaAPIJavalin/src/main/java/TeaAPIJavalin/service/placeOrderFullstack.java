@@ -3,17 +3,16 @@ package TeaAPIJavalin.service;
 import java.util.List;
 
 import TeaAPIJavalin.dao.placeOrderDao;
+import TeaAPIJavalin.dao.placeOrderDaoPostgres;
 import TeaAPIJavalin.pojos.Orders;
 
 public class placeOrderFullstack implements placeOrder {
 
-	public placeOrderFullstack() {
-		// TODO Auto-generated constructor stub
-	}
+	placeOrderDao orderDao = new placeOrderDaoPostgres();
 
 	@Override
-	public Orders placeOrder(Orders order) {
-		placeOrderDao.placeOrder(order);
+	public Orders placeNewOrder(Orders order) {
+		orderDao.placeOrder(order);
 		return order;
 	}
 
@@ -22,5 +21,19 @@ public class placeOrderFullstack implements placeOrder {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Orders updateOrder(Orders order) {
+		orderDao.updateOrder(order);
+		return null;
+	}
+
+	@Override
+	public Orders deleteOrder(Orders order) {
+		orderDao.deleteOrder(order);
+		return null;
+	}
+	
+	
 
 }

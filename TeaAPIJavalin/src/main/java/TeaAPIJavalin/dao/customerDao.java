@@ -4,12 +4,9 @@ import TeaAPIJavalin.pojos.Customer;
 
 public interface customerDao {
 
-	public static void createCustomer(Customer customer) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void createCustomer(Customer customer);
  	
-    public Customer updateCustomer(int customertId, Customer customer);
+    public Customer updateCustomer( Customer customer);
 	
 	public void deleteCustomer(Customer customer);
 }

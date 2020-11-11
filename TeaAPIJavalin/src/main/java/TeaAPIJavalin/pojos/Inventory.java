@@ -15,8 +15,10 @@ public class Inventory {
 		
 	}
 	
-	public Inventory() {
-		// TODO Auto-generated constructor stub
+	public Inventory(int productID) {
+		super();
+		this.productID = productID;
+		
 	}
 
 	public int getProductID() {

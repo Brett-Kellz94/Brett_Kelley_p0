@@ -8,6 +8,7 @@ public class Orders {
 	//private double orderNumber;
 	private double orderCost;
 	private int customerId;
+    private int orderId;
 	
 	public Orders(String teaType, String packaging, int quantity, double orderCost, int customerId) {
 		// TODO Auto-generated constructor stub
@@ -20,19 +21,25 @@ public class Orders {
 		this.customerId =customerId;	
 	}
 	
-	public Orders() {
+	public Orders(String teaType, String packaging, int quantity, double orderCost, int customerId, int orderId) {
 		// TODO Auto-generated constructor stub
+		super();
+		this.teaType = teaType;
+		this.packaging = packaging;
+		this.quantity = quantity;
+		//this.orderNumber = orderNumber;
+		this.orderCost = orderCost;
+		this.customerId =customerId;
+		this.orderId = orderId;
+	}
+	
+	public Orders(int orderId) {
+		super();
+		this.orderId =orderId;	
 	}
 
-	// create setters and getters
-//	public double getOrderNumber() {
-//		return orderNumber;
-//	}
-//	
-//	public void setOrderNumber(int orderNumber) {
-//		this.orderNumber = orderNumber;
-//	}
-	
+
+
 	public String getPackaging() {
 		return packaging;
 	}
@@ -68,8 +75,17 @@ public int getCustomerId() {
 	return customerId;
 }
 
-public void setCustomer(int customerId) {
-	this.customerId = customerId;
+public void setCustomer(int orderId) {
+	this.orderId = orderId;
 }
+
+public int getOrderId() {
+	return orderId;
+}
+
+public void setOrderId(int orderId) {
+	this.orderId = orderId;
+}
+
 	
 }

@@ -13,13 +13,25 @@ public class customerOrderFullstack implements customerOrder {
 
 	@Override
 	public Customer createCustomer(Customer customer) {
-		customerDao.createCustomer(customer);
+		custDao.createCustomer(customer);
 		return customer;
 	}
 
 	@Override
 	public List<Customer> getAllCustomers() {
 		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Customer deleteCustomer(Customer customer) {
+		custDao.deleteCustomer(customer);
+		return null;
+	}
+
+	@Override
+	public Customer updateCustomer(Customer customer) {
+		custDao.updateCustomer(customer);
 		return null;
 	}
 

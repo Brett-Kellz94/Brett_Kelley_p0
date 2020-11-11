@@ -13,19 +13,24 @@ public class inventoryFullstack implements insertInventory {
 
 	@Override
 	public Inventory addItem(Inventory inventory) {
-		inventoryDao.addItem(inventory);
+		inDao.addItem(inventory);
+		return inventory;
+	}
+
+	@Override
+	public List<Inventory> getAllItems() {
+		return null;
+	}
+
+	@Override
+	public Inventory updateItem(Inventory inventory) {
+		inDao.updateItem(inventory);
 		return null;
 	}
 
 	@Override
 	public Inventory deleteItem(Inventory inventory) {
-		inventoryDao.deleteItem(inventory);
-		return null;
-	}
-
-	@Override
-	public List<Inventory> getAllItems() {
-		// TODO Auto-generated method stub
+		inDao.deleteItem(inventory);
 		return null;
 	}
 

@@ -1,6 +1,8 @@
 package TeaAPIJavalin.test;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -49,6 +51,8 @@ public class customerDaoPostgresTest {
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
+		
+		
 	}
 
 	@Before
@@ -69,19 +73,21 @@ public class customerDaoPostgresTest {
 		custdao.setConnUtil(connUtil);
 		
 	}
-	}
+	
 
 	@After
 	public void tearDown() throws Exception {
 	
-  
+    stmt.executeUpdate("delete from customer where first_name = 'Buster' AND last_name = 'Keaton'");
+		
 
 		realConnection.close();
 	}
 
 	@Test
-	public void createCustomerTest() {
-Customer customer = new Customer("Buster Keaton", "2314527512", "b.keaton@gmail.com");
+	public void createCustomerTest() throws SQLException {
+    
+		Customer customer = new Customer("Buster Keaton", "2314527512", "b.keaton@gmail.com");
 		
 		custdao.createCustomer(customer);
 		
@@ -95,12 +101,12 @@ Customer customer = new Customer("Buster Keaton", "2314527512", "b.keaton@gmail.
 		assertTrue(rs.next());
 	}
 	
-	public void updateCustomerTest() throws SQL Exception{
-		Customer customer = new Customer('Buster', 'Keaton', '2314527512', 'b.keaton@gmail.com'); 
-		
-	}
-		
+//	public void updateCustomerTest() throws SQLException{
+//		Customer customer = new Customer('Buster Keaton', '2314527512', 'b.keaton@gmail.com'); 
+//		
+//	}
+//		
 		//fail("Not yet implemented");
 	}
 
-}
+

@@ -1,15 +1,14 @@
 package TeaAPIJavalin.test;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -20,16 +19,14 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import TeaAPIJavalin.dao.placeOrderDaoPostgres;
-import TeaAPIJavalin.pojos.Orders;
+import TeaAPIJavalin.dao.inventoryDaoPostgres;
+import TeaAPIJavalin.pojos.Inventory;
 import TeaAPIJavalin.util.ConnectionUtil;
 
-//@RunWith(MockitoJUnitRunner.class)
-
-public class placeOrderDaoPostgresTest {
+public class inventoryDaoPostgresTest {
 	
+	public inventoryDaoPostgres inventoryDao = new inventoryDaoPostgres();
 	
-	public placeOrderDaoPostgres orderDao = new placeOrderDaoPostgres();
 	
 	@Mock
 	private ConnectionUtil connUtil;
@@ -55,7 +52,7 @@ public class placeOrderDaoPostgresTest {
 	@Before
 	public void setUp() throws Exception {
 		
-		realConnection = new ConnectionUtil().createConnection();
+      realConnection = new ConnectionUtil().createConnection();
 		
 		//creating a real stmt from a connection
 		stmt = realConnection.createStatement(); 
@@ -68,43 +65,34 @@ public class placeOrderDaoPostgresTest {
 		when(connUtil.createConnection()).thenReturn(connection);
 		
 		//set up Dao to use the mocked object
-		orderDao.setConnUtil(connUtil);
-		
+		inventoryDao.setConnUtil(connUtil);
 	}
-	
 
 	@After
 	public void tearDown() throws Exception {
-		
-	    stmt.executeUpdate("delete from customer where first_name = 'Buster' AND last_name = 'Keaton'");
-		
 
-			realConnection.close();
+		stmt.executeUpdate("delete from inventory where productid = 1");
+		
+		realConnection.close();
 	}
 
 	@Test
-	public void placeOrderTest() throws SQLException {
+	public void creatItemTest() throws SQLException{
 		
+		Inventory newItem = new Inventory(1, 200, "Green Tea");
 		
-		Orders newOrder = new Orders("Green Tea", "Tea Bags", 25, 100.0, 4);
+		inventoryDao.addItem(newItem);
 		
-		orderDao.placeOrder(newOrder);
-		
-		String sql = "insert into orders (tea_type, packaging, quanity, cost)"
-				+ " values('Green Tea', 'Tea Bags', 25, 100.0)";
+		String sql = "insert into guest (productid, quantity, product_type)"
+				+ " values(1, 200, 'Green Tea')";
 		
 		verify(spy).executeUpdate(sql);
 		
-		ResultSet rs = stmt.executeQuery("select * from orders where orderId = ");
+		ResultSet rs = stmt.executeQuery("select * from guest where productid = 1");
 		
 		assertTrue(rs.next());
+		
 		//fail("Not yet implemented");
-		
 	}
-		
-		
-		
+
 }
-
-
-
