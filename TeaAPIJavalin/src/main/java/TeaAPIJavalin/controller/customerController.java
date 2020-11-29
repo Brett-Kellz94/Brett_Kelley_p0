@@ -22,13 +22,8 @@ public class customerController {
 		
 		customer.createCustomer(newCustomer);
 		
-		//add customer id to customer and order pojo
-		//ctx.html(Integer.toString(customer.getCustomerId()));
 	}
 	
-	//public void getCustomer(Context ctx) {
-		
-	//}
 	
 	public void updateCustomer(Context ctx) {
 		
